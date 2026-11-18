@@ -22,3 +22,9 @@ This repository has the version 5 releases:
 
 
 Older original version 4 releases of CLIGEN are at: (https://github.com/jfrankenberger/cligen4)
+
+## Use of AI in refactoring
+
+*Statement dated 2026-11-18 21:39 UTC.*
+
+The source code refactoring in this fork is being done with Claude Code version 2.1.327, Anthropic's command-line coding assistant, using the Claude Opus 5.5 model (model ID `claude-opus-5-5`). Claude is used to plan and carry out structural changes, such as splitting `cligen.f` into smaller source files grouped by job, and to update the Makefile and Visual Studio project to match. So far, changes are limited to moving code, with no edits to the computations, so CLIGEN's generated output stays the same. Every change is checked with a regression script that builds the original and refactored code with the same compiler settings and confirms that their outputs are byte-for-byte identical across many stations and run types. All changes are proposed and committed under the direction of the repository owner, who decides what is kept and what is offered to the original author.

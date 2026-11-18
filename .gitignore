@@ -1,0 +1,30 @@
+# Personal / Claude Code files
+CLAUDE.md
+claude-resume.sh
+.claude/
+
+# Secrets
+.env
+
+# Build output (Makefile)
+bin/
+*.o
+*.mod
+
+# Visual Studio / Intel Fortran build output
+.vs/
+Debug/
+Release/
+x64/
+Win32/
+*.suo
+*.user
+*.u2d
+
+# Editor and OS files
+*~
+*.swp
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

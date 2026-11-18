@@ -6,7 +6,7 @@
 	</Platforms>
 	<Configurations>
 		<Configuration Name="Debug|Win32" UseCompiler="ifortCompiler">
-			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" WarnInterfaces="true" Traceback="true" BoundsCheck="true" StackFrameCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
+			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" AdditionalIncludeDirectories="..\include" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" WarnInterfaces="true" Traceback="true" BoundsCheck="true" StackFrameCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
 			<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" SubSystem="subSystemConsole"/>
 			<Tool Name="VFResourceCompilerTool"/>
 			<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
@@ -17,7 +17,7 @@
 			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
 		</Configuration>
 		<Configuration Name="Debug|x64" UseCompiler="ifxCompiler">
-			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" WarnInterfaces="true" Traceback="true" BoundsCheck="true" StackFrameCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
+			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" AdditionalIncludeDirectories="..\include" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" WarnInterfaces="true" Traceback="true" BoundsCheck="true" StackFrameCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
 			<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" SubSystem="subSystemConsole"/>
 			<Tool Name="VFResourceCompilerTool"/>
 			<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
@@ -28,7 +28,7 @@
 			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
 		</Configuration>
 		<Configuration Name="Release|Win32" UseCompiler="ifortCompiler">
-			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true"/>
+			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" AdditionalIncludeDirectories="..\include"/>
 			<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole"/>
 			<Tool Name="VFResourceCompilerTool"/>
 			<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
@@ -39,7 +39,7 @@
 			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
 		</Configuration>
 		<Configuration Name="Release|x64" UseCompiler="ifxCompiler">
-			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" RuntimeLibrary="rtMultiThreadedDLL"/>
+			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" AdditionalIncludeDirectories="..\include" RuntimeLibrary="rtMultiThreadedDLL"/>
 			<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole"/>
 			<Tool Name="VFResourceCompilerTool"/>
 			<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
@@ -52,23 +52,37 @@
 	</Configurations>
 	<Files>
 		<Filter Name="Header Files" Filter="fi;fd;h;inc">
-			<File RelativePath="..\cbk1.inc"/>
-			<File RelativePath="..\cbk3.inc"/>
-			<File RelativePath="..\cbk4.inc"/>
-			<File RelativePath="..\cbk5.inc"/>
-			<File RelativePath="..\cbk7.inc"/>
-			<File RelativePath="..\cbk9.inc"/>
-			<File RelativePath="..\ccl1.inc"/>
-			<File RelativePath="..\cinterp.inc"/>
-			<File RelativePath="..\command6.inc"/>
-			<File RelativePath="..\crandom.inc"/>
-			<File RelativePath="..\crandom3.inc"/>
-			<File RelativePath="..\csumr.inc"/>
-			<File RelativePath="..\ctap2.inc"/>
+			<File RelativePath="..\include\cbk1.inc"/>
+			<File RelativePath="..\include\cbk3.inc"/>
+			<File RelativePath="..\include\cbk4.inc"/>
+			<File RelativePath="..\include\cbk5.inc"/>
+			<File RelativePath="..\include\cbk7.inc"/>
+			<File RelativePath="..\include\cbk9.inc"/>
+			<File RelativePath="..\include\ccl1.inc"/>
+			<File RelativePath="..\include\cinterp.inc"/>
+			<File RelativePath="..\include\command6.inc"/>
+			<File RelativePath="..\include\crandom.inc"/>
+			<File RelativePath="..\include\crandom3.inc"/>
+			<File RelativePath="..\include\csumr.inc"/>
+			<File RelativePath="..\include\ctap2.inc"/>
 		</Filter>
 		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
 		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
-			<File RelativePath="..\cligen.f"/>
+			<File RelativePath="..\src\blockdata.f"/>
+			<File RelativePath="..\src\cligen.f"/>
+			<File RelativePath="..\src\interp.f"/>
+			<File RelativePath="..\src\options.f"/>
+			<File RelativePath="..\src\output.f"/>
+			<File RelativePath="..\src\random.f"/>
+			<File RelativePath="..\src\simulate.f"/>
+			<File RelativePath="..\src\station.f"/>
+			<File RelativePath="..\src\stats.f"/>
+			<File RelativePath="..\src\storm.f"/>
+			<File RelativePath="..\src\weather.f"/>
+			<File RelativePath="..\src\dcdflib\cdf.f"/>
+			<File RelativePath="..\src\dcdflib\machine.f"/>
+			<File RelativePath="..\src\dcdflib\solvers.f"/>
+			<File RelativePath="..\src\dcdflib\special.f"/>
 		</Filter>
 	</Files>
 	<Globals/>

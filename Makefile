@@ -20,8 +20,9 @@ DBGFLAGS = -O0 -g -std=legacy -fno-automatic -fcheck=all -fbacktrace \
            -ffpe-trap=invalid,zero,overflow -Wall -Wno-tabs
 LDFLAGS ?=
 
-SRC     := cligen.f
-INCS    := $(wildcard *.inc)
+SRC     := $(wildcard src/*.f src/dcdflib/*.f)
+INCDIR  := include
+INCS    := $(wildcard $(INCDIR)/*.inc)
 BINDIR  := bin
 BIN     := $(BINDIR)/cligen
 DBGBIN  := $(BINDIR)/cligen-debug
@@ -35,14 +36,14 @@ all: build
 
 build: $(BIN)
 
-# Compile from the repo root so the `include '*.inc'` statements resolve.
+# -I$(INCDIR) lets the `include '*.inc'` statements in src/ find the COMMON blocks.
 $(BIN): $(SRC) $(INCS) | check-fc $(BINDIR)
-	$(FC) $(FFLAGS) -o $@ $(SRC) $(LDFLAGS)
+	$(FC) $(FFLAGS) -I$(INCDIR) -o $@ $(SRC) $(LDFLAGS)
 
 debug: $(DBGBIN)
 
 $(DBGBIN): $(SRC) $(INCS) | check-fc $(BINDIR)
-	$(FC) $(DBGFLAGS) -o $@ $(SRC) $(LDFLAGS)
+	$(FC) $(DBGFLAGS) -I$(INCDIR) -o $@ $(SRC) $(LDFLAGS)
 
 $(BINDIR):
 	mkdir -p $@
